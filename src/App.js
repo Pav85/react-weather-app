@@ -1,11 +1,9 @@
 import React from "react";
+import axios from "axios";
+import { Container, Row, Col, Button, Form, Alert } from "react-bootstrap";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Welcome to my app</h1>
-    </div>
-  );
+  return <Container className="mt-5"></Container>;
 }
 
 export default App;
