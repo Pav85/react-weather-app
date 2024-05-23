@@ -11,7 +11,7 @@ function App() {
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-  const getWeather = async (e) => {
+  const getWeather = async () => {
     setLoading(true);
     setError(null);
     try {
@@ -49,7 +49,8 @@ function App() {
         </Col>
       </Row>
       {error && <Alert variant="danger">{error}</Alert>}
-      {weather && <WeatherDisplayCard weather={weather} />}
+      {/* {weather && <WeatherDisplayCard weather={weather} />} */}
+      <WeatherDisplayCard weather={weather} />
     </Container>
   );
 }
