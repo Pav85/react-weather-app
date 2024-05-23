@@ -43,7 +43,7 @@ function App() {
             </Form.Group>
 
             <Button variant="primary" onClick={getWeather} className="mt-3">
-              Get Weather
+              {loading ? "Loading..." : "Get Weather"}
             </Button>
           </Form>
         </Col>
