@@ -7,12 +7,24 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const getWeather = async (e) => {
-    console.log("function called");
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      setWeather(response.data);
+      setError("");
+    } catch (error) {
+      setError("Error fetching weather data. Please try again.");
+      console.error("Error fetching weather data: ", error);
+    }
+    setLoading(false);
   };
 
   return (
