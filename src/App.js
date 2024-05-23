@@ -11,12 +11,14 @@ function App() {
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
+  console.log("API_KEY:", API_KEY);
+
   const getWeather = async () => {
     setLoading(true);
     setError(null);
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+        `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
       );
       setWeather(response.data);
       setError("");
