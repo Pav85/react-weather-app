@@ -10,13 +10,16 @@ const WeatherDisplayCard = ({ weather }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>
-          <strong>Temperature: {weather.current.temp_c}</strong> °C
+          <strong>Temperature: </strong>
+          {weather.current.temp_c}°C
         </Card.Text>
         <Card.Text>
-          <strong>Humidity: {weather.current.humidity}</strong> %
+          <strong>Humidity: </strong>
+          {weather.current.humidity}%
         </Card.Text>
         <Card.Text>
-          <strong>Condition: {weather.current.condition.text}</strong>{" "}
+          <strong>Condition: </strong>
+          {weather.current.condition.text}
         </Card.Text>
       </Card.Body>
     </Card>
