@@ -22,6 +22,7 @@ function App() {
   const getWeather = async () => {
     if (!city.trim()) {
       setError("Please enter a city.");
+      inputRef.current.focus();
       return;
     }
 
@@ -34,6 +35,7 @@ function App() {
 
       setWeather(response.data);
       setError("");
+      setCity("");
     } catch (error) {
       setError("Error fetching weather data. Please try again.");
       console.error("Error fetching weather data: ", error);
