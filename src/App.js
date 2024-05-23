@@ -5,6 +5,10 @@ import WeatherDisplayCard from "./components/WeatherDisplayCard";
 
 function App() {
   const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const getWeather = async (e) => {
@@ -32,7 +36,7 @@ function App() {
           </Form>
         </Col>
       </Row>
-      <WeatherDisplayCard />
+      {weather && <WeatherDisplayCard weather={weather} />}
     </Container>
   );
 }
