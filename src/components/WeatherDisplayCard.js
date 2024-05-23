@@ -6,9 +6,16 @@ const WeatherDisplayCard = ({ weather }) => {
   return (
     <Card className="text-center mt-3">
       <Card.Header>
-        <h3 className="mt-1">Weather in {weather.location.name}</h3>
+        <h3 className="mt-1">
+          Weather in {weather.location.name}, {weather.location.country}
+        </h3>
       </Card.Header>
       <Card.Body>
+        <img
+          src={weather.current.condition.icon}
+          alt={weather.current.condition.text}
+          style={{ width: "70px", height: "70px", marginBottom: "16px" }}
+        />
         <Card.Text>
           <strong>Temperature: </strong>
           {weather.current.temp_c}°C
