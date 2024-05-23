@@ -8,9 +8,15 @@ const WeatherDisplayCard = () => {
         <h3 className="mt-1">Weather in </h3>
       </Card.Header>
       <Card.Body>
-        <Card.Text>Temperature: °C</Card.Text>
-        <Card.Text>Humidity: %</Card.Text>
-        <Card.Text>Condition: </Card.Text>
+        <Card.Text>
+          <strong>Temperature:</strong> °C
+        </Card.Text>
+        <Card.Text>
+          <strong>Humidity:</strong> %
+        </Card.Text>
+        <Card.Text>
+          <strong>Condition:</strong>{" "}
+        </Card.Text>
       </Card.Body>
     </Card>
   );
