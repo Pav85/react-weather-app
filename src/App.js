@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "axios"; // used axios to make http requests
 import { Container, Row, Col, Button, Form, Alert } from "react-bootstrap";
 import WeatherDisplayCard from "./components/WeatherDisplayCard";
 
@@ -9,10 +9,10 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // API_KEY is stored in.env file
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-  console.log("API_KEY:", API_KEY);
-
+  // function to get weather data from API
   const getWeather = async () => {
     setLoading(true);
     setError(null);
@@ -20,6 +20,7 @@ function App() {
       const response = await axios.get(
         `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
       );
+
       setWeather(response.data);
       setError("");
     } catch (error) {
