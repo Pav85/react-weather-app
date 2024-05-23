@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 const WeatherDisplayCard = ({ weather }) => {
   if (!weather) return null;
   return (
-    <Card className="text-center">
+    <Card className="text-center mt-3">
       <Card.Header>
         <h3 className="mt-1">Weather in {weather.location.name}</h3>
       </Card.Header>

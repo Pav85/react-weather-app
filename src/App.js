@@ -20,6 +20,11 @@ function App() {
 
   // function to get weather data from API
   const getWeather = async () => {
+    if (!city.trim()) {
+      setError("Please enter a city.");
+      return;
+    }
+
     setLoading(true);
     setError(null);
     try {
@@ -64,16 +69,20 @@ function App() {
             <Button
               variant="primary"
               onClick={getWeather}
+              disabled={loading}
               className="mt-3 w-100 text-center"
             >
               {loading ? "Loading..." : "Get Weather"}
             </Button>
+            {error && (
+              <Alert variant="danger" className="mt-3 text-center">
+                {error}
+              </Alert>
+            )}
+            {weather && <WeatherDisplayCard weather={weather} />}
           </Form>
         </Col>
       </Row>
-      {error && <Alert variant="danger">{error}</Alert>}
-      {weather && <WeatherDisplayCard weather={weather} />}
-      {/* <WeatherDisplayCard weather={weather} /> */}
     </Container>
   );
 }
