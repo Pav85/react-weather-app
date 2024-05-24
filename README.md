@@ -33,7 +33,7 @@ REACT_APP_WEATHER_API_KEY=your_api_key_here
 
 ## Deployment
 
-Visit the live site here: [Weather App]()
+Visit the live site here: [Weather App](https://pav85.github.io/react-weather-app/)
 
 Here's a preview of the application:
 
