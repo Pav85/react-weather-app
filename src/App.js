@@ -20,6 +20,7 @@ function App() {
     focus();
   }, []);
 
+  // useEffect hook to clear the error message after 1.8s
   useEffect(() => {
     let timer;
     if (error) {
