@@ -51,6 +51,7 @@ function App() {
       setWeather(response.data);
       setError("");
       setCity("");
+      setTimeout(() => focus(), 100);
     } catch (error) {
       setError("Error fetching weather data. Please try again.");
       console.error("Error fetching weather data: ", error);
