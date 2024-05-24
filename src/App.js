@@ -13,16 +13,30 @@ function App() {
   // API_KEY is stored in.env file
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
+  const focus = () => inputRef.current.focus();
+
   // useEffect hook to focus the input field when the component mounts
   useEffect(() => {
-    inputRef.current.focus();
+    focus();
   }, []);
+
+  useEffect(() => {
+    let timer;
+    if (error) {
+      timer = setTimeout(() => {
+        setError("");
+      }, 1800);
+    }
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [error]);
 
   // function to get weather data from API
   const getWeather = async () => {
     if (!city.trim()) {
       setError("Please enter a city.");
-      inputRef.current.focus();
+      focus();
       return;
     }
 
