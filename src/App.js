@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import axios from "axios"; // used axios to make http requests
 import { useGeolocated } from "react-geolocated"; // used react-geolocated to get user's location
 import { Container, Row, Col, Button, Form, Alert } from "react-bootstrap";
@@ -45,11 +45,27 @@ function App() {
     };
   }, [error]);
 
+  // function to get local weather data from API
+  const getLocalWeatherByCoordinates = useCallback(
+    async (latitude, longitude) => {
+      try {
+        const response = await axios.get(
+          `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitude},${longitude}`
+        );
+        setLocalWeather(response.data);
+      } catch (error) {
+        console.error("Error fetching weather data: ", error);
+      }
+    },
+    [API_KEY]
+  );
+
+  // useEffect hook to get local weather data when user's location is available
   useEffect(() => {
     if (coords) {
       getLocalWeatherByCoordinates(coords.latitude, coords.longitude);
     }
-  }, [coords]);
+  }, [coords, getLocalWeatherByCoordinates]);
 
   // function to get weather data from API
   const getWeather = async () => {
@@ -74,19 +90,6 @@ function App() {
       console.error("Error fetching weather data: ", error);
     }
     setLoading(false);
-  };
-
-  // function to get local weather data from API
-  const getLocalWeatherByCoordinates = async (latitude, longitude) => {
-    try {
-      const response = await axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitude},${longitude}`
-      );
-
-      setLocalWeather(response.data);
-    } catch (error) {
-      console.error("Error fetching weather data: ", error);
-    }
   };
 
   // function to handle the enter key press to trigger the getNationality function
