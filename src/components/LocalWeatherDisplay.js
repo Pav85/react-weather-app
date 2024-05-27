@@ -10,14 +10,15 @@ const LocalWeatherDisplay = ({ weather }) => {
         <img
           src={weather.current.condition.icon}
           alt={weather.current.condition.text}
-          style={{ width: "30px", height: "30px", marginRight: "10px" }}
+          style={{ width: "35px", height: "35px", marginRight: "10px" }}
         />
         <div>
           <Card.Text className="mb-0">
-            <strong>{weather.location.name}</strong>
+            <strong>{weather.location.name} </strong>
+            {weather.current.temp_c}°C
           </Card.Text>
           <Card.Text className="mb-0">
-            {weather.current.temp_c}°C, {weather.current.condition.text}
+            {weather.current.condition.text} in your area
           </Card.Text>
         </div>
       </Card.Body>
