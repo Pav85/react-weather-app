@@ -18,7 +18,7 @@
   font-size: 48px;
 }
 
-/* Media query for mobile screens */
+/* Media query for smaller screens */
 @media (max-width: 720px) {
   .local-weather-container {
     position: static;

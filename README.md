@@ -6,7 +6,7 @@
 
 ## Description
 
-This React application fetches and displays the current weather for a given city using the WeatherAPI. It provides a user-friendly interface for entering a city name and retrieving weather information, including temperature, humidity, and weather conditions.
+This React application fetches and displays the current weather for a given city using the WeatherAPI. It also utilizes geolocation to automatically fetch and display the weather for the user's current location, if permission is granted. The application provides a user-friendly interface for entering a city name and retrieving weather information, including temperature, humidity, and weather conditions.
 
 ## Table of Contents
 
@@ -44,8 +44,9 @@ Here's a preview of the application:
 ## Resources
 
 - [WeatherAPI](https://www.weatherapi.com/) for fetching current weather data.
-- [React Bootstrap](https://react-bootstrap.github.io/) for styling and UI components.
+- [React Geolocated](https://www.npmjs.com/package/react-geolocated) for obtaining the user's current location.
 - [Axios](https://axios-http.com/) for making HTTP requests.
+- [React Bootstrap](https://react-bootstrap.github.io/) for styling and UI components.
 
 ## Usage
 

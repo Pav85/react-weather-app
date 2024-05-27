@@ -18,7 +18,7 @@ function App() {
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const focus = () => inputRef.current.focus();
-  //
+
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       positionOptions: {
